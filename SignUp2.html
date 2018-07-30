@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign Up</title>
+
+	<script>
+		function validate()
+		{
+			var fName = document.forms["signUpForm"]["fName"].value;
+			var lName = document.forms["signUpForm"]["lName"].value;
+			var email = document.forms["signUpForm"]["email"].value;
+			var pass = document.forms["signUpForm"]["pass"].value;
+			var letter = /^[A-Za-z]+$/;
+
+			if (fName == "" || lName == "" || email == "" || pass == "")  //validate empty fields
+			{
+		        alert("All fields must be filled out");
+		        return false;
+	    	}else if (pass.length < 6) //validate password's length
+	    	{
+		        alert("Password must be more than six characters");
+		        return false;
+	    	}else if (!fName.match(letter) || !lName.match(letter) || (!fName.match(letter) && !lName.match(letter) )) //validate characters of name
+	    	{
+	    		 alert("Name cannot be number");
+		        return false;
+	    	}
+	    	else
+	    	{
+	    		alert("Registered Successfully");
+	    		return true;
+	    	}
+		}
+	</script>
+
+	<style type="text/css">
+
+		h1
+		{
+			font-family: sans-serif;
+			font-weight: lighter;
+		}
+
+		div
+		{
+			text-align: center;
+			display: inline-block;
+			vertical-align: middle;
+			height: 100%;
+		}
+
+		.left 
+		{
+			background-color: #eae5e7;
+			position: absolute;
+			width: 50%;
+			left: 0px;
+			top: 0px;
+			bottom: 50px;
+		}
+
+		.right {
+			background-color: #e55489;
+			position: absolute;
+			width: 50%;
+			right: 0px;
+			top: 0px;
+		}
+
+		.inputBox
+		{
+			width: 90%;
+			height: 50px;
+			border-radius: 3px;
+			border-width: 1px;
+			margin-top: 20px;
+			padding-left: 2%;
+		}
+
+		.submit
+		{
+			background: #e55489;
+	        border-radius: 5px;
+	        border: none;
+	        color: white;
+	        height: 40px;
+	        text-align: center;
+	        width: 90%;
+		}
+
+		.submit:hover
+		{
+			background-color: #cc4979;
+		}
+
+		.loginFB
+		{
+			background: #4267b2;
+	        border-radius: 5px;
+	        border: none;
+	        color: white;
+	        height: 40px;
+	        text-align: center;
+	        width: 70%;
+		}
+
+		.loginFB:hover{
+ 		background-color: #385899;
+ 		}
+
+ 		.loginTwitter
+		{
+			background: #1DA1F2;
+	        border-radius: 5px;
+	        border: none;
+	        color: white;
+	        height: 40px;
+	        text-align: center;
+	        width: 70%;
+		}
+
+		.loginTwitter:hover{
+ 		background-color: #1a90d8;
+ 		}
+
+ 		.loginGoogle
+		{
+			background: #DB4437;
+	        border-radius: 5px;
+	        border: none;
+	        color: white;
+	        height: 40px;
+	        text-align: center;
+	        width: 70%;
+		}
+
+		.loginGoogle:hover{
+ 		background-color: #c63d31;
+ 		}
+
+ 		button
+ 		{
+ 			margin-top: 30px;
+ 		}
+
+ 		.p3, .p4
+ 		{
+ 			color: #eae5e7;
+ 		}
+
+ 		.p3
+ 		{
+ 			margin-bottom: 50px;
+ 			margin-top: 30px;
+ 			font-family: sans-serif;
+ 			font-weight: lighter;
+ 			font-size: 30px;
+ 		}
+
+	</style>
+
+</head>
+<body>
+	
+	<div class="left">
+
+		<form name="signUpForm" class="signUpForm" action="SignUp.html" onsubmit="return validate()">
+
+			<h1>Sign Up</h1>
+
+			<input type="name" name="fName" class="inputBox" placeholder="First Name"><br>
+
+			<input type="name" name="lName" class="inputBox" placeholder="Last Name"><br>
+				
+			<input type="Email" name="email" class="inputBox" placeholder="Email"><br>
+				
+			<input type="Password" name="pass" class="inputBox" placeholder="Password">
+				
+			<p class="p1">By clicking Join now, you agree to our <b>User Agreement Privacy Policy</b> and <b>Cookie Policy</b></p>
+			
+			<input type="submit" name="submit" class="submit" value="Join Now" >
+			
+		</form>
+
+	</div>
+	
+	<div class="right">
+		<p class="p3">Sign in with social network</p>
+		<button type="button" class="loginFB">Continue with Facebook</button>
+		<button type="button" class="loginTwitter">Continue with Twitter</button>
+		<button type="button" class="loginGoogle">Continue with Google+</button>
+		<p class="p4">I already have account! <a href="SignIn">Sign in</a></p>
+	</div>
+</body>
+</html>

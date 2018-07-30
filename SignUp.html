@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign up</title>
+
+	<script>
+		function validate()
+		{
+			var fName = document.forms["signUpForm"]["fName"].value;
+			var lName = document.forms["signUpForm"]["lName"].value;
+			var email = document.forms["signUpForm"]["email"].value;
+			var pass = document.forms["signUpForm"]["pass"].value;
+			var letter = /^[A-Za-z]+$/;
+
+			if (fName == "" || lName == "" || email == "" || pass == "")  //validate empty fields
+			{
+		        alert("All fields must be filled out");
+		        return false;
+	    	}else if (pass.length < 6) //validate password's length
+	    	{
+		        alert("Password must be more than six characters");
+		        return false;
+	    	}else if (!fName.match(letter) || !lName.match(letter) || (!fName.match(letter) && !lName.match(letter) )) //validate characters of name
+	    	{
+	    		 alert("Name cannot be number");
+		        return false;
+	    	}
+	    	else
+	    	{
+	    		alert("Registered Successfully");
+	    		return true;
+	    	}
+		}
+	</script>
+
+	<style type="text/css">
+		body
+		{
+			background-color: #0077b5;
+			text-align: center;
+			font-family: sans-serif;
+			padding: 20px;
+		}
+
+		.p4, h2
+		{
+			color: white;
+		}
+
+		.dataForm
+		{
+			text-align: left;
+		}
+
+		form
+		{
+			background-color: #CACCCE;
+			background-size: 90px 600px;
+
+			margin: 0px 450px 0px 450px;  /*top right bottom right*/
+			padding: 5px 50px 5px 50px;
+		}
+
+		.inputBox
+		{
+			width: 100%;
+			height: 30px;
+		}
+
+		.loginFB
+		{
+			background: #4267b2;
+	        border-radius: 5px;
+	        border: none;
+	        color: white;
+	        height: 40px;
+	        text-align: center;
+	        width: 100%;
+		}
+
+		.loginFB:hover{
+ 		background-color: #385899;
+ 		}
+
+		.submit
+		{
+			background: #0077b5;
+	        border-radius: 5px;
+	        border: none;
+	        color: white;
+	        height: 40px;
+	        text-align: center;
+	        width: 100%;
+		}
+
+		.submit:hover{
+ 		background-color: #0069a0;
+ 		}
+
+
+	</style>
+</head>
+
+<body>
+
+	<img src="Logo-White-128px-TM.png" width="10%">
+	
+	<h2>Make the most of your professional life</h2>
+
+	<form name="signUpForm" action="SignUp.html" onsubmit="return validate()">
+			<p class="dataForm" >First name:</p>
+			<input type="name" name="fName" class="inputBox">
+
+			<p class="dataForm">Last name:</p>
+			<input type="name" name="lName" class="inputBox">
+			
+			<p class="dataForm">Email:</p>
+			<input type="Email" name="email" class="inputBox">
+			
+			<p class="dataForm">Password (6 or more characters):</p>
+			<input type="Password" name="pass" class="inputBox">
+			
+		<p class="p1">By clicking Join now, you agree to Linked's <b>User Agreement Privacy Policy</b> and <b>Cookie Policy</b></p>
+		
+		<input type="submit" name="submit" class="submit" value="Join now" >
+		
+		<p>or</p>
+		
+		<button type="button" class="loginFB">Continue with Facebook</button>
+		<p class="p3">Already on LinkedIn? <a href="SignIn">Sign in</a></p>
+	</form>
+
+	<p class="p4">LinkedIn Corporation &copy; 2016</p>
+
+</body>
+</html>
